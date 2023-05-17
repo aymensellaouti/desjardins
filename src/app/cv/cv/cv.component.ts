@@ -4,9 +4,10 @@ import { Cv } from '../model/cv.model';
 @Component({
   selector: 'app-cv',
   templateUrl: './cv.component.html',
-  styleUrls: ['./cv.component.css']
+  styleUrls: ['./cv.component.css'],
 })
 export class CvComponent {
+  selectedCv: Cv | null = null;
   cvs: Cv[] = [
     new Cv(
       1,
@@ -27,4 +28,7 @@ export class CvComponent {
       'rotating_card_profile2.png'
     ),
   ];
+  selectCv(cv: Cv): void {
+    this.selectedCv = cv;
+  }
 }
