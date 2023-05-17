@@ -8,11 +8,9 @@ import { Component } from '@angular/core';
 export class ColorComponent {
   defaultColor = 'red';
   color = this.defaultColor;
-
   changeColor(newColor: string): void {
     this.color = newColor;
   }
-
   // changeDefaultColor() {
   //   this.color = this.defaultColor;
   // }
