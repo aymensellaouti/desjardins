@@ -1,0 +1,19 @@
+<p>first works!</p>
+<p>In First</p>
+<div
+  [style.color]="'green'"
+  [hidden]="isHidden"
+  class="alert alert-warning">
+  In First, cc  {{ name }}
+  <app-second></app-second>
+</div>
+Vous avez écris {{message}}
+<button class="btn btn-dark" (click)="showHide()">
+  show / hide
+</button>
+<input
+  #monInput
+  (change)="changeMessage(monInput.value)" name="message" type="text" class="form-control">
+<!-- balises -->
+<!-- attributs : état de la balise -->
+<!-- événements => fonctionnement -->
