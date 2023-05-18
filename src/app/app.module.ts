@@ -20,6 +20,8 @@ import { MiniWordComponent } from './directives/mini-word/mini-word.component';
 import { NgClassExampleComponent } from './directives/ng-class-example/ng-class-example.component';
 import { HighlightDirective } from './directives/highlight.directive';
 import { RainbowDirective } from './directives/rainbow.directive';
+import { UsdToBtcPipe } from './pipes/usd-to-btc.pipe';
+import { DefaultImagePipe } from './cv/pipes/default-image.pipe';
 
 @NgModule({
   declarations: [
@@ -39,7 +41,9 @@ import { RainbowDirective } from './directives/rainbow.directive';
     MiniWordComponent,
     NgClassExampleComponent,
     HighlightDirective,
-    RainbowDirective
+    RainbowDirective,
+    UsdToBtcPipe,
+    DefaultImagePipe
   ],
   imports: [
     BrowserModule,
