@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { Cv } from '../model/cv.model';
+import { LoggerService } from 'src/app/services/logger.service';
+import { SayHello } from 'src/app/services/sayHello.service';
 
 @Component({
   selector: 'app-cv',
@@ -7,6 +9,14 @@ import { Cv } from '../model/cv.model';
   styleUrls: ['./cv.component.css'],
 })
 export class CvComponent {
+
+  constructor(
+    private helloService: SayHello,
+    private logger: LoggerService,
+  ) {
+    this.helloService.hello();
+    this.logger.logger('cc from CvComponent');
+  }
   selectedCv: Cv | null = null;
   date = new Date();
   cvs: Cv[] = [

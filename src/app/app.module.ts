@@ -22,6 +22,8 @@ import { HighlightDirective } from './directives/highlight.directive';
 import { RainbowDirective } from './directives/rainbow.directive';
 import { UsdToBtcPipe } from './pipes/usd-to-btc.pipe';
 import { DefaultImagePipe } from './cv/pipes/default-image.pipe';
+import { LoggerService } from './services/logger.service';
+import { SayHello } from './services/sayHello.service';
 
 @NgModule({
   declarations: [
@@ -43,15 +45,11 @@ import { DefaultImagePipe } from './cv/pipes/default-image.pipe';
     HighlightDirective,
     RainbowDirective,
     UsdToBtcPipe,
-    DefaultImagePipe
+    DefaultImagePipe,
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    FormsModule
-  ],
+  imports: [BrowserModule, AppRoutingModule, FormsModule],
   exports: [],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
