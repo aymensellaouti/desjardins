@@ -24,6 +24,7 @@ import { UsdToBtcPipe } from './pipes/usd-to-btc.pipe';
 import { DefaultImagePipe } from './cv/pipes/default-image.pipe';
 import { LoggerService } from './services/logger.service';
 import { SayHello } from './services/sayHello.service';
+import { TodoComponent } from './todo/todo/todo.component';
 
 @NgModule({
   declarations: [
@@ -46,6 +47,7 @@ import { SayHello } from './services/sayHello.service';
     RainbowDirective,
     UsdToBtcPipe,
     DefaultImagePipe,
+    TodoComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule],
   exports: [],
