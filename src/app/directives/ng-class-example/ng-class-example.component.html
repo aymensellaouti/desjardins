@@ -1,0 +1,7 @@
+<div class="lampe" [ngClass]="{
+  'eteinte': isEteinte,
+  'allume': !isEteinte
+}" (click)="interrupteur()"> Lampe </div>
+
+<div appHighlight>test</div>
+<div appHighlight [in]="'lightblue'" [out]="'white'">test</div>
