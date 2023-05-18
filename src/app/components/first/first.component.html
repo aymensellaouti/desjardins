@@ -5,7 +5,7 @@
   [hidden]="isHidden"
   class="alert alert-warning">
   In First, cc  {{ name }}
-  <app-second></app-second>
+  <app-second [message]="message"></app-second>
 </div>
 Vous avez écris {{message}}
 <button class="btn btn-dark" (click)="showHide()">

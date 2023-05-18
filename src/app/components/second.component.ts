@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { AfterViewInit, Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-second',
@@ -10,6 +10,15 @@ import { Component } from '@angular/core';
   styles: [
   ]
 })
-export class SecondComponent {
-
+export class SecondComponent implements OnInit, AfterViewInit {
+  @Input() message= '';
+  constructor() {
+    console.log('constructor', this.message);
+  }
+  ngOnInit(): void {
+    console.log('ngOnInit',this.message);
+  }
+  ngAfterViewInit(): void {
+    console.log('ngAfterViewInit', this.message);
+  }
 }

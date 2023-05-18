@@ -6,16 +6,16 @@ import { Component } from '@angular/core';
   styleUrls: ['./first.component.css'],
 })
 export class FirstComponent {
+  // Attributs (state 'état')
   name = 'aymen';
   isHidden = true;
-  message = '';
+  message = 'init';
   constructor() {}
-  // Attributs (state 'état')
+  // méthodes (behaviour 'comportement')
   showHide() {
     this.isHidden = !this.isHidden;
   }
   changeMessage(newMessage: string): void {
     this.message = newMessage;
   }
-  // méthodes (behaviour 'comportement')
 }
