@@ -1,0 +1,24 @@
+
+<div
+  [ngStyle]="{
+    color: color,
+    'font-size': size + 'px',
+    fontFamily: font
+  }"
+>Bonjour DesJardins</div>
+
+<div class="row">
+  <div class="col">
+    <input type="color" [(ngModel)]="color" class="form-control">
+  </div>
+  <div class="col">
+    <input type="number" [(ngModel)]="size" class="form-control">
+  </div>
+  <div class="col">
+    <select [(ngModel)]="font" class="form-control">
+      <option value="verdana">verdana</option>
+      <option value="garamond">garamond</option>
+      <option value="arial">arial</option>
+    </select>
+  </div>
+</div>
