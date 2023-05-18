@@ -15,7 +15,6 @@ export class DetailCvComponent {
     private embaucheService: EmbaucheService,
     private toastr: ToastrService
   ) {}
-
   embaucher() {
     if (this.cv) {
       if (this.embaucheService.embaucher(this.cv)) {
