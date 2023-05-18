@@ -2,6 +2,9 @@ import { Component } from '@angular/core';
 import { Cv } from '../model/cv.model';
 import { LoggerService } from 'src/app/services/logger.service';
 import { SayHello } from 'src/app/services/sayHello.service';
+import { TodoService } from 'src/app/todo/services/todo.service';
+import { ToastrService } from 'ngx-toastr';
+import { CvService } from '../services/cv.service';
 
 @Component({
   selector: 'app-cv',
@@ -9,55 +12,23 @@ import { SayHello } from 'src/app/services/sayHello.service';
   styleUrls: ['./cv.component.css'],
 })
 export class CvComponent {
-
   constructor(
     private helloService: SayHello,
     private logger: LoggerService,
+    private todoService: TodoService,
+    private toastr: ToastrService,
+    private cvService: CvService
   ) {
     this.helloService.hello();
     this.logger.logger('cc from CvComponent');
+    this.toastr.info('Bienvenu :)');
+    this.cvs = this.cvService.getCvs();
   }
   selectedCv: Cv | null = null;
   date = new Date();
-  cvs: Cv[] = [
-    new Cv(
-      1,
-      'sellaouti',
-      'aymen',
-      '1234',
-      40,
-      'trainer',
-      'rotating_card_profile.png'
-    ),
-    new Cv(
-      2,
-      'sellaouti',
-      'skander',
-      '7777',
-      4,
-      'student',
-      'rotating_card_profile2.png'
-    ),
-    new Cv(
-      3,
-      'test',
-      'tes',
-      '7777',
-      4,
-      'student',
-      ''
-    ),
-    new Cv(
-      4,
-      'test',
-      'tes',
-      '7777',
-      4,
-      'student',
-      '                    '
-    ),
-  ];
+  cvs: Cv[] = [];
   selectCv(cv: Cv): void {
     this.selectedCv = cv;
+    this.todoService.loggerTodos();
   }
 }
