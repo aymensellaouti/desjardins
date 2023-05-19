@@ -1,0 +1,7 @@
+<pre>
+  <div class="row">
+    <div class="col-3" *ngFor="let todo of todos$ | async">
+      {{todo | json}}
+    </div>
+  </div>
+</pre>
