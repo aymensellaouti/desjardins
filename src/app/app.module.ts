@@ -33,6 +33,7 @@ import { CvInfosComponent } from './cv/cv-infos/cv-infos.component';
 import { NF404Component } from './components/nf404/nf404.component';
 import { TodoModule } from './todo/todo.module';
 import { TestFormComponent } from './components/test-form/test-form.component';
+import { LoginComponent } from './auth/login/login.component';
 
 @NgModule({
   declarations: [
@@ -60,6 +61,7 @@ import { TestFormComponent } from './components/test-form/test-form.component';
     CvInfosComponent,
     NF404Component,
     TestFormComponent,
+    LoginComponent,
   ],
   imports: [
     BrowserModule,
