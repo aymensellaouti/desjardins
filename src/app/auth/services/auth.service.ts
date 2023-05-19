@@ -15,7 +15,11 @@ export class AuthService {
     return this.http.post<LoginResponseDto>(API.login, credentials);
   }
 
-  logout() {}
+  logout() {
+    localStorage.removeItem('token');
+  }
 
-  isAuthenticated() {}
+  isAuthenticated(): boolean {
+    return !!localStorage.getItem('token');
+  }
 }
