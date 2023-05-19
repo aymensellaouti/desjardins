@@ -5,13 +5,17 @@ import { TodoComponent } from './todo/todo/todo.component';
 import { FirstComponent } from './components/first/first.component';
 import { ColorComponent } from './components/color/color.component';
 import { MiniWordComponent } from './directives/mini-word/mini-word.component';
+import { SecondComponent } from './components/second.component';
+
+// /word
 
 const routes: Routes = [
-  {path: '', component: FirstComponent},
-  {path: 'cv', component: CvComponent},
-  {path: 'todo', component: TodoComponent},
-  {path: 'color', component: ColorComponent},
-  {path: 'word', component: MiniWordComponent},
+  { path: '', component: FirstComponent },
+  { path: 'cv', component: CvComponent },
+  { path: 'todo', component: TodoComponent },
+  { path: 'color/:defaultColor', component: ColorComponent },
+  { path: 'word', component: MiniWordComponent },
+  // { path: ':quelqueChose', component: SecondComponent },
 ];
 
 @NgModule({

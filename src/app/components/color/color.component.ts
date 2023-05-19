@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-color',
@@ -7,7 +8,12 @@ import { Component } from '@angular/core';
 })
 export class ColorComponent {
   defaultColor = 'red';
-  color = this.defaultColor;
+  color = '';
+  constructor(private activatedRoute: ActivatedRoute) {
+    console.log(activatedRoute.snapshot);
+    this.defaultColor = activatedRoute.snapshot.params['defaultColor'];
+    this.color = this.defaultColor;
+  }
   changeColor(newColor: string): void {
     this.color = newColor;
   }
