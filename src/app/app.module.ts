@@ -31,6 +31,8 @@ import { EmbaucheComponent } from './cv/embauche/embauche.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { CvInfosComponent } from './cv/cv-infos/cv-infos.component';
 import { NF404Component } from './components/nf404/nf404.component';
+import { TodoModule } from './todo/todo.module';
+import { TestFormComponent } from './components/test-form/test-form.component';
 
 @NgModule({
   declarations: [
@@ -53,11 +55,11 @@ import { NF404Component } from './components/nf404/nf404.component';
     RainbowDirective,
     UsdToBtcPipe,
     DefaultImagePipe,
-    TodoComponent,
     EmbaucheComponent,
     NavbarComponent,
     CvInfosComponent,
     NF404Component,
+    TestFormComponent,
   ],
   imports: [
     BrowserModule,
@@ -65,6 +67,7 @@ import { NF404Component } from './components/nf404/nf404.component';
     FormsModule,
     BrowserAnimationsModule, // required animations module
     ToastrModule.forRoot(), // ToastrModule added
+    TodoModule,
   ],
   exports: [],
   providers: [],
