@@ -23,7 +23,13 @@ export class CvComponent {
     this.helloService.hello();
     this.logger.logger('cc from CvComponent');
     this.toastr.info('Bienvenu :)');
-    this.cvs = this.cvService.getCvs();
+    this.cvService.getCvs().subscribe({
+      next: (cvs) => this.cvs = cvs,
+      error: (e) => {
+        this.cvs = this.cvService.getFakeCvs();
+        this.toastr.error('Attention les données sont fake, veuillez contacter l admin');
+      }
+    });
     this.cvService.selectCv$
     .pipe(distinctUntilChanged())
     .subscribe({

@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Cv } from '../model/cv.model';
-import { Subject } from 'rxjs';
+import { Observable, Subject } from 'rxjs';
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
+import { API } from 'src/app/config/api.const';
 
 @Injectable({
   providedIn: 'root',
@@ -9,7 +11,7 @@ export class CvService {
   private selectCvSubject = new Subject<Cv>();
   selectCv$ = this.selectCvSubject.asObservable();
   cvs: Cv[];
-  constructor() {
+  constructor(private http: HttpClient) {
     this.cvs = [
       new Cv(
         1,
@@ -33,15 +35,26 @@ export class CvService {
       new Cv(4, 'test', 'tes', '7777', 4, 'student', '                    '),
     ];
   }
-  getCvs(): Cv[] {
+  getCvs(): Observable<Cv[]> {
+    return this.http.get<Cv[]>(API.cv);
+  }
+  getFakeCvs(): Cv[] {
     return this.cvs;
   }
-  getCvById(id: number): Cv | null {
+  getCvById(id: number): Observable<Cv> {
+    return this.http.get<Cv>(API.cv + id);
+  }
+  getFakeCvById(id: number): Cv | null {
     return this.cvs.find((cv) => cv.id === id) ?? null;
+  }
+  deleteCvById(id: number): Observable<any> {
+    // const params = new HttpParams().set('access_token', localStorage.getItem('token') ?? '');
+    const headers = new HttpHeaders().set('Authorization', localStorage.getItem('token') ?? '');
+    return this.http.delete<any>(API.cv + id, { headers });
   }
   deleteCv(cv: Cv): boolean {
     const index = this.cvs.indexOf(cv);
-    if (index!=-1) {
+    if (index != -1) {
       this.cvs.splice(index, 1);
       return true;
     }

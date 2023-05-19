@@ -10,5 +10,5 @@
     <input #pwdInput="ngModel" type="password" minlength="4" required ngModel name="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
     <div *ngIf="pwdInput.invalid && pwdInput.dirty" class="alert alert-danger">Le password devra avoir au moins 4 carctères</div>
   </div>
-  <button type="submit" [disabled]="loginForm.invalid" class="mt-2 btn btn-primary">Submit</button>
+  <button type="submit" (click)="login(loginForm.value)" [disabled]="loginForm.invalid" class="mt-2 btn btn-primary">Submit</button>
 </form>

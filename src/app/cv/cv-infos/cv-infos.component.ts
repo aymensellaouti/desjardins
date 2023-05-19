@@ -19,16 +19,25 @@ export class CvInfosComponent {
     private toaster: ToastrService
   ) {
     const id = this.activatedRoute.snapshot.params['id'];
-    this.cv = this.cvService.getCvById(+id);
-    if (!this.cv) {
-      this.router.navigate([MES_ROUTES.cv]);
-    }
+    this.cvService.getCvById(+id).subscribe({
+      next: (cv) => this.cv = cv,
+      error: (e) => this.router.navigate([MES_ROUTES.cv])
+    });
   }
   deleteCv(cv: Cv) {
     if (this.cv) {
-      this.cvService.deleteCv(this.cv);
-      this.toaster.success(`Le cv de ${this.cv.name} a été supprimé avec succès`);
-      this.router.navigate([MES_ROUTES.cv]);
+      this.cvService.deleteCvById(this.cv.id).subscribe({
+        next: () => {
+          this.toaster.success(
+            `Le cv a été supprimé avec succès`
+          );
+          this.router.navigate([MES_ROUTES.cv]);
+        },
+        error: (e) => {
+          console.log('erreur suppression',e);
+        }
+      });
+
     }
   };
 }
