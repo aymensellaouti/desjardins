@@ -30,6 +30,7 @@ import { TodoComponent } from './todo/todo/todo.component';
 import { EmbaucheComponent } from './cv/embauche/embauche.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { CvInfosComponent } from './cv/cv-infos/cv-infos.component';
+import { NF404Component } from './components/nf404/nf404.component';
 
 @NgModule({
   declarations: [
@@ -56,6 +57,7 @@ import { CvInfosComponent } from './cv/cv-infos/cv-infos.component';
     EmbaucheComponent,
     NavbarComponent,
     CvInfosComponent,
+    NF404Component,
   ],
   imports: [
     BrowserModule,
